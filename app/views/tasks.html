@@ -1,0 +1,17 @@
+<div class="container-marged-bottom">
+  <table class="table">
+    <caption class="mid-size centered">List of tasks</caption>
+    <thead>
+    <tr>
+      <th>Owner</th>
+      <th>Task</th>
+      <th><button class="btn btn-danger pull-right" ng-click="tasks.deleteAll()">Delete All</button></th>
+    </tr>
+    </thead>
+    <tr ng-repeat="task in tasks.taskArray">
+      <th>{{task.ownerName}}</th>
+      <th>{{task.taskName}}</th>
+      <th><button class="btn btn-danger pull-right" ng-click="tasks.deleteTask($index)">Delete</button></th>
+    </tr>
+  </table>
+</div>
