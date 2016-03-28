@@ -3,16 +3,10 @@
  */
 'use strict'
 
-/**
- * @ngdoc function
- * @name dashboardApp.controller:CreateCtrl
- * @description
- * # CreateCtrl
- * Controller of the dashboardApp
- */
 angular.module('dashboardApp')
   .controller('CreateCtrl', function ($scope, TaskService, $timeout) {
     $scope.done = false;
+    $scope.fadeIn = "";
     this.addTask = function(){
       var currentTasks = TaskService.getTasks();
       currentTasks.push({ownerName: $scope.ownerName,taskName: $scope.taskName});
@@ -20,8 +14,10 @@ angular.module('dashboardApp')
       $scope.taskName = "";
       TaskService.setTasks(currentTasks);
       $scope.done = true;
+      $scope.fadeIn = "fade-anim";
       $timeout(function () {
         $scope.done = false;
-      }, 500);
+        $scope.fadeIn = "";
+      }, 4000);
     }
   });

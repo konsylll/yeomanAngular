@@ -15,29 +15,45 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/create', {
-        templateUrl: 'views/create.html',
-        controller: 'CreateCtrl',
-        controllerAs: 'create'
-      })
-      .when('/tasks', {
-        templateUrl: 'views/tasks.html',
-        controller: 'TasksCtrl',
-        controllerAs: 'tasks'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+    'ngTouch',
+    'ui.router'
+  ]).config(function($stateProvider, $urlRouterProvider){
+  $stateProvider.state('main',{
+    url:"/",
+    templateUrl: "views/main.html"
+  }).state('create',{
+    url: "/create",
+    templateUrl: "views/create.html",
+    controller: "CreateCtrl",
+    controllerAs: "create"
+  }).state('tasks',{
+    url: "/tasks",
+    templateUrl: "views/tasks.html",
+    controller: "TasksCtrl",
+    controllerAs: "tasks"
+  })
+  // .config(function ($routeProvider) {
+  //   $routeProvider
+  //     .when('/', {
+  //       templateUrl: 'views/main.html',
+  //       controller: 'MainCtrl',
+  //       controllerAs: 'main'
+  //     })
+  //     .when('/create', {
+  //       templateUrl: 'views/create.html',
+  //       controller: 'CreateCtrl',
+  //       controllerAs: 'create'
+  //     })
+  //     .when('/tasks', {
+  //       templateUrl: 'views/tasks.html',
+  //       controller: 'TasksCtrl',
+  //       controllerAs: 'tasks'
+  //     })
+  //     .otherwise({
+  //       redirectTo: '/'
+  //     });
   }).service('TaskService', function(){
+
     this.setTasks = function(tasks){
       localStorage.setItem("taskService", angular.toJson(tasks));
     }

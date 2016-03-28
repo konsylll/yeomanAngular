@@ -75,11 +75,24 @@ body {
   text-align: center;
 }
 .marged {
-  margin-top:20px;
+  margin-top: 20px;
 }
 .blue {
   color: blue;
 }
+.faded{
+  opacity: 0;
+}
+@keyframes fade-in-out{
+  0% {opacity: 0}
+  50% {opacity: 1}
+  100% {opacity: 0}
+}
+.fade-anim{
+  animation-name: fade-in-out;
+  animation-duration: 4s;
+}
+
 /* Custom Container */
 .container-marged-bottom{
   margin-bottom: 20px;

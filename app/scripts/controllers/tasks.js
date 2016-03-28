@@ -6,6 +6,7 @@
 angular.module('dashboardApp')
   .controller('TasksCtrl', function ($scope, TaskService) {
     this.taskArray = TaskService.getTasks();
+
     this.deleteTask = function(index){
       var currentTasks = TaskService.getTasks();
       currentTasks.splice(index,1);
