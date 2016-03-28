@@ -4,15 +4,15 @@
       <p class="centered mid-size">Input your name and name of the task</p>
     </div>
   </div>
-  <form class="form-inline">
+  <form class="form-inline" name="inputForm">
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control" placeholder="Your Name" ng-model="ownerName">
+      <input name="owner" type="text" class="form-control" placeholder="Your Name" ng-model="ownerName" required>
     </div>
     <div class="pull-right">
       <div class="form-group">
         <label>Task Name</label>
-        <input type="text" class="form-control" placeholder="Meeting #1" ng-model="taskName">
+        <input name="task" type="text" class="form-control" placeholder="Meeting #1" ng-model="taskName" required>
       </div>
       <button class="btn btn-primary" ng-click="create.addTask()">Add</button>
     </div>

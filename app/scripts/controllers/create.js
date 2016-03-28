@@ -8,10 +8,11 @@ angular.module('dashboardApp')
     $scope.done = false;
     $scope.fadeIn = "";
     this.addTask = function(){
+      if ($scope.inputForm.owner.$valid != true || $scope.inputForm.task.$valid != true){
+        return 0;
+      }
       var currentTasks = TaskService.getTasks();
       currentTasks.push({ownerName: $scope.ownerName,taskName: $scope.taskName});
-      $scope.ownerName = "";
-      $scope.taskName = "";
       TaskService.setTasks(currentTasks);
       $scope.done = true;
       $scope.fadeIn = "fade-anim";
@@ -19,5 +20,8 @@ angular.module('dashboardApp')
         $scope.done = false;
         $scope.fadeIn = "";
       }, 4000);
+
+      $scope.ownerName = "";
+      $scope.taskName = "";
     }
   });
