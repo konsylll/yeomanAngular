@@ -64,4 +64,23 @@ angular
         return [];
       }
     }
-  });
+  }).directive('rtask', function(){
+  var directive = {};
+  directive.restrict = "E";
+  directive.template = "<div class='container-marged-bottom'>" +
+    "<div class='row'><div class='pull-left col-md-4 text-left vhcenter'><b>{{task.ownerName}}</b></div>" +
+    "<div class='col-md-4 vhcenter'><b>{{task.taskName}}</b></div>" +
+    "<div class='col-md-4'><button class='btn btn-danger pull-right vhcenter' ng-click='tasks.deleteTask($index)'>Delete</button></div>" +
+    "</div></div>";
+
+  return directive;
+}).directive('taskHeader', function(){
+  var directive = {};
+  directive.restrict = "E";
+  directive.template = "<div class='container-marged-bottom'>" +
+    "<div class='row'><div class='pull-left col-md-4 text-left vhcenter'><b>Owner</b></div>" +
+    "<div class='col-md-4 vhcenter'><b>Task</b></div>" +
+    "<div class='col-md-4'><button class='btn btn-danger pull-right vhcenter' ng-click='tasks.deleteAll()'>Delete All</button></div>" +
+    "</div></div><hr>";
+  return directive;
+});
